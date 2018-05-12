@@ -75,6 +75,12 @@ user: admin
 password: admin
 ```
 
+## Notes
+
+* Before running ```docker-compose up``` it might be necessary to edit prometheus.yml file under /docker/env directory with
+```- targets:``` sequence pointed into your local machine
+* Sample micrometer dashboard for Grafana `https://grafana.com/dashboards/4701`
+
 ## Built With
 
 * [Spring-boot](https://projects.spring.io/spring-boot/) - The web framework used
@@ -88,10 +94,4 @@ password: admin
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Notes
-
-* Before running ```docker-compose up``` it might be necessary to edit prometheus.yml file under /docker/env directory with
-```- targets:``` sequence pointed into your local machine
-* Sample micrometer dashboard for Grafana `https://grafana.com/dashboards/4701` 
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details 
