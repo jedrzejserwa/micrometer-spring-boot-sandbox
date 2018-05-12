@@ -1,0 +1,14 @@
+# my global config
+global:  
+  scrape_interval:     15s 
+  evaluation_interval: 15s 
+  # scrape_timeout is set to the global default (10s).
+
+
+scrape_configs:
+  - job_name: 'spring-boot'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['192.168.1.100:8080']
+      # change to yours ip
+      # https://github.com/docker/docker.github.io/issues/6012
