@@ -1,7 +1,6 @@
 # Micrometer-spring-boot-sandbox
 
-The project gives you the opportunity to run sample application, library in this case, to try out the possibilities offered by the
-combining spring-boot, micrometer(with prometheus) and grafana technologies.
+This project gives you the opportunity to run sample application, library in this case, to try out the possibilities offered by combining spring-boot, micrometer(with prometheus) and grafana technologies.
 
 The application has defined for you four endpoints:
 
