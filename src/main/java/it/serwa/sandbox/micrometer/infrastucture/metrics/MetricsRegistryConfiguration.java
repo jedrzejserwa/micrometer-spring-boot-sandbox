@@ -1,13 +1,16 @@
 package it.serwa.sandbox.micrometer.infrastucture.metrics;
 
+import io.micrometer.core.aop.TimedAspect;
 import io.micrometer.core.instrument.MeterRegistry;
 import it.serwa.sandbox.micrometer.application.domain.BookFacade;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import java.util.concurrent.ThreadFactory;
 
 @Configuration
+@EnableAspectJAutoProxy
 class MetricsRegistryConfiguration {
     private final MeterRegistry meterRegistry;
     private final BookFacade bookFacade;
@@ -20,7 +23,12 @@ class MetricsRegistryConfiguration {
     }
 
     @Bean
-    MetricsRegistry metricsFacade() {
+    MetricsRegistry metricsRegistry() {
         return new MetricsRegistry(meterRegistry, bookFacade, threadFactory);
+    }
+
+    @Bean
+    TimedAspect timedAspect() {
+        return new TimedAspect(meterRegistry);
     }
 }

@@ -1,5 +1,6 @@
 package it.serwa.sandbox.micrometer.application.domain;
 
+import io.micrometer.core.annotation.Timed;
 import it.serwa.sandbox.micrometer.application.dto.BookDTO;
 import it.serwa.sandbox.micrometer.application.dto.exception.BookNotFoundException;
 import it.serwa.sandbox.micrometer.application.dto.exception.SavingBookException;
@@ -17,6 +18,7 @@ public class BookFacade {
         this.bookRepository = bookRepository;
     }
 
+    @Timed(value = "add-book-flow")
     public BookDTO addBook(BookDTO bookDTO) {
         validate(bookDTO);
         Book book = fromDTO(bookDTO);
